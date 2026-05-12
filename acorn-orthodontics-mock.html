@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Acorn Orthodontics — The Leader in Modern Orthodontics</title>
+<style>
+  :root {
+    --navy: #05377b;
+    --navy-dark: #02265a;
+    --navy-light: #1a55a5;
+    --gray: #87898e;
+    --gray-light: #b8babe;
+    --gray-soft: #e6e7ea;
+    --cream: #f6f7f9;
+    --white: #fdfdfe;
+    --text: #2a2a2a;
+    --muted: #6b6b6b;
+    --gold: #d4a017;
+    --shadow: 0 10px 40px rgba(5, 55, 123, 0.08);
+    --shadow-lg: 0 20px 60px rgba(5, 55, 123, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: var(--navy); text-decoration: none; }
+  a:hover { color: var(--navy-light); }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- LOGO ---------- */
+  .logo { display: flex; align-items: center; }
+  .logo-mark { width: 165px; height: 92px; display: block; }
+  .logo-mark-footer { width: 260px; height: 145px; display: block; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-soft);
+    padding: 6px 0;
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.93rem;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .btn-primary {
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 26px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--navy-dark);
+    color: var(--white);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    padding: 12px 26px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 2px solid var(--navy);
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--navy); color: var(--white); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 90px 0 110px;
+    background: linear-gradient(135deg, var(--cream) 0%, #ebeef3 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -150px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(30, 58, 95, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 4.8vw, 3.6rem);
+    margin-bottom: 24px;
+    color: var(--navy-dark);
+  }
+  .hero h1 .accent { color: var(--navy); font-style: italic; }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+    max-width: 540px;
+  }
+  .hero-credentials {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .credential-pill {
+    background: var(--white);
+    border: 1px solid var(--gray-soft);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    color: var(--navy);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .credential-pill::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-visual {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    border-radius: 8px;
+    aspect-ratio: 4/5;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-visual svg.placeholder {
+    width: 78%;
+    height: auto;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08), transparent 50%);
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: white;
+    padding: 14px 20px;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 2;
+  }
+  .badge-stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; }
+  .badge-text { font-size: 0.85rem; color: var(--muted); line-height: 1.3; }
+  .badge-text strong { color: var(--navy); display: block; font-family: Georgia, serif; }
+
+  /* ---------- TRUST BAR ---------- */
+  .trust-bar { background: var(--navy); padding: 40px 0; color: var(--white); }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+  .trust-item .num {
+    font-family: Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--white);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .trust-item .label {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 100px 0; }
+  .section-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 16px; }
+  .section-intro {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 680px;
+    margin-bottom: 56px;
+  }
+  .section-head-center { text-align: center; }
+  .section-head-center .section-intro { margin-left: auto; margin-right: auto; }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 36px 28px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    border: 1px solid var(--gray-soft);
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--navy);
+  }
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--cream);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    color: var(--navy);
+  }
+  .service-icon svg { width: 28px; height: 28px; }
+  .service-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+  .service-card p { color: var(--muted); font-size: 0.95rem; }
+  .service-card a.learn-more {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.88rem;
+    color: var(--navy);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- AI FEATURE ---------- */
+  .ai-feature {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .ai-feature::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
+  }
+  .ai-feature h2 { color: var(--white); font-size: 2.2rem; margin-bottom: 20px; position: relative; }
+  .ai-feature p { color: rgba(255,255,255,0.85); margin-bottom: 24px; position: relative; }
+  .ai-feature .section-eyebrow { color: var(--gray-light); position: relative; }
+  .ai-features-list { list-style: none; position: relative; }
+  .ai-features-list li {
+    padding: 10px 0;
+    color: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .ai-features-list li svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 5px;
+    color: var(--white);
+    stroke-width: 2.5;
+  }
+  .chat-preview {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    position: relative;
+  }
+  .chat-msg {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    max-width: 85%;
+    font-size: 0.92rem;
+  }
+  .chat-msg.bot { background: rgba(255,255,255,0.12); color: white; border-bottom-left-radius: 2px; }
+  .chat-msg.user { background: var(--white); color: var(--navy-dark); margin-left: auto; border-bottom-right-radius: 2px; }
+
+  /* ---------- ABOUT ---------- */
+  .about-visual {
+    background: linear-gradient(135deg, var(--gray) 0%, #6c6c6c 100%);
+    border-radius: 8px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+  }
+  .about-visual svg { width: 50%; height: 50%; color: rgba(255,255,255,0.18); }
+
+  /* ---------- TEAM ---------- */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .team-card {
+    text-align: center;
+    background: var(--white);
+    padding: 40px 28px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-soft);
+    transition: all 0.3s;
+  }
+  .team-card:hover {
+    border-color: var(--navy);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+  .team-photo {
+    width: 180px;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 100%);
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.25);
+  }
+  .team-photo svg { width: 50%; height: 50%; }
+  .team-card h3 { font-size: 1.4rem; margin-bottom: 4px; }
+  .team-role { color: var(--gray); font-weight: 600; font-size: 0.85rem; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .team-bio { color: var(--muted); font-size: 0.96rem; margin-bottom: 16px; }
+  .team-creds {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .team-cred {
+    background: var(--cream);
+    color: var(--navy);
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials { background: var(--cream); }
+  .review-summary {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 40px;
+    align-items: center;
+    background: var(--white);
+    padding: 36px 44px;
+    border-radius: 6px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+  }
+  .review-summary-rating { text-align: center; }
+  .review-summary-rating .big-num {
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .review-summary-rating .stars { color: var(--gold); font-size: 1.2rem; letter-spacing: 3px; margin: 8px 0; }
+  .review-summary-rating .count { color: var(--muted); font-size: 0.9rem; }
+  .review-sources { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .review-source {
+    text-align: center;
+    padding: 16px;
+    border-left: 1px solid var(--gray-soft);
+  }
+  .review-source:first-child { border-left: none; }
+  .review-source .source-name { font-family: Georgia, serif; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .review-source .source-stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 4px; }
+  .review-source .source-count { font-size: 0.82rem; color: var(--muted); }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testimonial {
+    padding: 28px;
+    background: var(--white);
+    border-radius: 6px;
+    border-top: 3px solid var(--navy);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+  }
+  .testimonial-stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 14px; font-size: 0.95rem; }
+  .testimonial-text {
+    color: var(--text);
+    margin-bottom: 20px;
+    font-size: 0.98rem;
+    font-style: italic;
+    flex: 1;
+  }
+  .testimonial-author { display: flex; align-items: center; gap: 14px; padding-top: 16px; border-top: 1px solid var(--gray-soft); }
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: Georgia, serif;
+    flex-shrink: 0;
+  }
+  .author-name strong { display: block; color: var(--navy); font-family: Georgia, serif; font-size: 0.95rem; }
+  .author-name span { font-size: 0.8rem; color: var(--muted); }
+  .reviews-cta { text-align: center; margin-top: 40px; }
+
+  /* ---------- LOCATIONS ---------- */
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .location-card {
+    background: var(--white);
+    padding: 28px;
+    border-radius: 6px;
+    border: 1px solid var(--gray-soft);
+    transition: all 0.3s;
+  }
+  .location-card:hover {
+    border-color: var(--navy);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+  .location-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--cream);
+  }
+  .location-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .location-row svg {
+    width: 18px;
+    height: 18px;
+    color: var(--navy);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .location-row .info { font-size: 0.92rem; color: var(--text); }
+  .location-row .info a { color: var(--navy); font-weight: 600; }
+  .location-row .info .label {
+    display: block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-section {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 0;
+  }
+  .cta-section h2 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-bottom: 32px; max-width: 620px; margin-left: auto; margin-right: auto; }
+  .cta-section .btn-primary { background: var(--white); color: var(--navy); }
+  .cta-section .btn-primary:hover { background: var(--cream); color: var(--navy-dark); }
+  .cta-section .btn-secondary { color: var(--white); border-color: var(--white); }
+  .cta-section .btn-secondary:hover { background: var(--white); color: var(--navy); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,0.7);
+    padding: 60px 0 24px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  footer h4 {
+    color: var(--white);
+    font-family: -apple-system, sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+  footer ul { list-style: none; }
+  footer ul li { padding: 6px 0; }
+  footer a { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+  footer a:hover { color: var(--white); }
+  .footer-brand { color: var(--white); margin-bottom: 14px; }
+  .footer-brand .logo-text .main { color: var(--white); }
+  .footer-brand .logo-text .sub { color: rgba(255,255,255,0.6); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ---------- CHATBOT WIDGET ---------- */
+  .chat-fab {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 64px;
+    height: 64px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s;
+  }
+  .chat-fab svg { width: 28px; height: 28px; }
+  .chat-fab:hover { transform: scale(1.08); background: var(--navy-dark); }
+  .chat-fab .pulse {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: var(--navy);
+    opacity: 0.35;
+    animation: pulse 2s infinite;
+    z-index: -1;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.35; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+  .chat-window {
+    position: fixed;
+    bottom: 110px;
+    right: 28px;
+    width: 380px;
+    max-width: calc(100vw - 56px);
+    height: 580px;
+    max-height: calc(100vh - 140px);
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+    animation: slideUp 0.25s ease;
+  }
+  .chat-window.open { display: flex; }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .chat-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .chat-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.05rem;
+    font-family: Georgia, serif;
+  }
+  .chat-header-info strong { display: block; font-size: 1rem; font-family: Georgia, serif; }
+  .chat-header-info span { font-size: 0.8rem; opacity: 0.85; display: flex; align-items: center; gap: 6px; }
+  .online-dot { width: 8px; height: 8px; background: #5ddc7a; border-radius: 50%; display: inline-block; }
+  .chat-close {
+    margin-left: auto;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chat-close svg { width: 14px; height: 14px; }
+  .chat-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .chat-bubble {
+    padding: 11px 15px;
+    border-radius: 8px;
+    max-width: 85%;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    animation: fadeIn 0.3s;
+    white-space: pre-line;
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .chat-bubble.bot {
+    background: white;
+    color: var(--text);
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .chat-bubble.user {
+    background: var(--navy);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+  }
+  .chat-quick-replies { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .quick-reply {
+    background: white;
+    border: 1px solid var(--navy);
+    color: var(--navy);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .quick-reply:hover { background: var(--navy); color: white; }
+  .chat-footer {
+    padding: 14px;
+    background: white;
+    border-top: 1px solid var(--gray-soft);
+    display: flex;
+    gap: 8px;
+  }
+  .chat-input {
+    flex: 1;
+    border: 1px solid var(--gray-soft);
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    outline: none;
+    font-family: inherit;
+  }
+  .chat-input:focus { border-color: var(--navy); }
+  .chat-send {
+    background: var(--navy);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chat-send svg { width: 16px; height: 16px; }
+  .typing { display: flex; gap: 4px; padding: 14px 16px; background: white; border-radius: 8px; border-bottom-left-radius: 2px; align-self: flex-start; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .typing span { width: 7px; height: 7px; background: var(--navy-light); border-radius: 50%; animation: typing 1.2s infinite; }
+  .typing span:nth-child(2) { animation-delay: 0.2s; }
+  .typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typing { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-6px); opacity: 1; } }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .hero-grid, .ai-feature { grid-template-columns: 1fr; gap: 40px; }
+    .ai-feature { padding: 40px 28px; }
+    .services-grid, .team-grid, .testimonial-grid, .footer-grid, .locations-grid { grid-template-columns: 1fr; }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .nav-links { display: none; }
+    section { padding: 60px 0; }
+    .logo-text .sub { display: none; }
+    .review-summary { grid-template-columns: 1fr; padding: 28px; }
+    .review-sources { grid-template-columns: 1fr; gap: 12px; }
+    .review-source { border-left: none; border-top: 1px solid var(--gray-soft); padding-top: 16px; }
+    .review-source:first-child { border-top: none; padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="acorn-logo" viewBox="0 0 5000 5000">
+      <path class="st1-l" d="M4621.61,2260.73c-11.05,10.61-17.69,22.49-16.76,39.64l-.84,536.42-393.77-482.68-.78,432.02c.88,15.33,8.38,23.57,18.77,35.87l-162.26.52c-20.51.07-41.5-20.94-52.19-37.71l-115.19-180.67c-29.74-46.64-56.63-52.58-115.82-45.97l.64,234.08c.03,12.52,12.15,19.89,20.39,29.16l-119.59.6c10.93-12.01,19.14-20.78,19.14-36.68l.03-490.2c0-15.52-7.97-24.44-17.82-36.4l175.39.08c42.77.02,83.3,10,118.78,32.08,45.22,28.16,66.23,76.43,58.32,129.91-11.42,59.85-58.64,101.45-119.46,114.76,31.92,17.14,53.13,33.7,69.01,60.75l103.12,163.43c14.95,23.7,33.63,45.51,61.77,54.75,7.93,2.6,17.39-13.03,17.4-22.77l.11-485.37c-9.11-22.86-24.43-33.74-44.63-47.24l112.42-.25,325.49,399.46,1.48-370.04c-3.54-12.16-8.96-19-17.04-28.88l73.87,1.31ZM3955.37,2395.25c-2.76-62.05-47-105.99-106.04-103.4l-67.02,2.93.34,226.83,67.95.29c64.68-6.38,107.79-58.85,104.78-126.65Z"/>
+      <path class="st1-l" d="M3571,2709.57c-64.5,82.62-164.11,126.35-266.74,119.81-99.04-6.31-195.28-58.47-248.26-148.22-76.06-128.86-36.08-289.92,86.87-375.44,119.05-82.8,282.6-71.99,391.68,23.87s123.81,268.06,36.44,379.97ZM3518.64,2649.85c27.4-81.69,21.19-168.17-12.29-244.17-33.96-77.09-106.64-122.77-190.93-120.09-88.3,2.81-164.06,56.79-191.31,141.91-26.94,84.16-21.24,178.76,21.51,255.58,41.19,74.02,117.41,114.36,199.53,107.42,77.92-6.59,145.95-58.52,173.5-140.65Z"/>
+      <path class="st1-l" d="M2571.99,2668.29c40.82,84.37,120.31,125.4,210.36,125.09,87.59-.3,159.25-48.75,197.92-133.21l-6.31,114.33c-167.42,97.73-400,67.73-487.15-103.82-83.4-164.16,6.27-358.35,183.79-406.86,102.37-27.97,206.93-10.47,300,34.85-2.19,39.31,11.24,68.77,1.84,110.18-44.6-89.24-129.26-132.9-225.45-121.98-95.32,10.82-171.49,71.78-195.63,166.1-18.17,70.98-12.51,146.8,20.63,215.32Z"/>
+      <polygon class="st1-l" points="2393.67 2653.73 2298.96 2636.76 2199.68 2389.29 2109.19 2625.33 2063.81 2626.67 2221.75 2244.52 2393.67 2653.73"/>
+      <path class="st1-l" d="M2403.59,2670.89l52.02,122.87c5.34,12.45,18,17.03,27.3,27.31l-138.39.26c45.68-25.98-11.99-79.02-30.27-152.18,30.77.7,60.28-1.18,89.33,1.74Z"/>
+      <path class="st1-l" d="M2077.8,2680.12l-37.86,102.26c-6.35,15.82-1.92,27.62,13.07,38.87l-96.52.63c15.56-14.77,27-18.12,33.47-33.11l41.06-102.73,46.79-5.91Z"/>
+      <path class="st1-l" d="M1147.01,1559.89c-41.37,141.49,19.34,360.15,67.51,506.23l-37.22,78.83c-92.24-167.54-186.75-369.48-177.81-563.27,6.52-141.38,103.81-251.97,246.58-269.16-32.08,44.61-36.48,106.54-39.46,161.35-30.7,20.58-49.21,50.47-59.6,86.02Z"/>
+      <path class="st1-l" d="M2276.5,2167.6l-80.13-.62-48.77-108.52-77.04-214.89c64.56,62.91,105.58,133.49,152.44,202.63l53.5,121.4Z"/>
+      <path class="st1-l" d="M1885.55,3676.48c-322.92,31.61-685.85-176.45-912.91-392.36-134.03-127.45-243.07-273-330.74-437.26-58.39,11.66-114.52,17.56-170.6,4.59-60.11-13.91-100.03-62.18-99.16-124.98,1.95-141.16,132.37-329.18,236.19-441.67-33.71,77.93-74.65,142.64-82.39,222.9-7.47,77.43,34.25,137.69,112.55,149.76,159.77,24.63,389.14-78.24,538.81-159.16,301.12-162.79,565.1-374.83,804.52-621.48-57.04,101.68-137.92,174.76-212.55,258.19-207.73,206.2-436.48,385.43-690.8,531.07-98.09,56.17-194.93,102.78-301.24,142.23,159.22,341.16,417.66,605.98,756.35,761.48,128.12,58.83,260.38,82.9,401.3,75.54,82.11-4.29,202.48-13.45,264.93,24.86-51.44-6.93-97.5-14.92-149.19-9.86l-165.09,16.16Z"/>
+      <path class="st1-l" d="M2352.77,3542.66c-32.17,45.38-46.52,92.88-48.68,144.83-43.71-74.1-18.68-187.45,33.44-249.63,29.53-35.23,55.58-71.45,79.28-109.92l81.91.88c-29.55,60.57-69.69,106.28-106.34,157.98l-39.61,55.87Z"/>
+      <ellipse class="st1-l" cx="1987.13" cy="1870.85" rx="4.99" ry="4.99"/>
+      <path class="st2-l" d="M1779.43,3151.18c-17.55,41.6-60.62,63.71-101.34,61.44-40.33-2.24-80.16-27.93-93.41-69.03-11.25-34.87-2.47-69.46,21.84-95.49,45.14-48.34,127.65-41.13,163.78,11.16,17.98,26.02,23.02,58.99,9.13,91.92ZM1720.06,3188.88c35.27-22.83,40.66-66.2,31.9-102.52-7.64-31.66-29.99-54.15-58.45-57.91-28.82-3.81-58.18,8.91-71.99,36.11-16.22,31.96-14.45,69.88,4.08,100.6,18.94,31.37,60.99,45.37,94.45,23.72Z"/>
+      <path class="st2-l" d="M2843.75,3153.53c-18.86,41.32-62.7,62.57-103.75,58.81-41.96-3.85-81.95-32.49-92.29-76.55-8.05-34.3,3.48-66.41,25.87-89.17,47.06-47.84,129.07-38.15,163.4,14.49,17.85,27.37,21,61.25,6.77,92.42ZM2801.87,3174.08c28.23-36.01,24.21-87.8-1.32-121.76-15.79-21.01-41.27-27.59-66.64-23.03-19.63,3.53-40.85,18.06-50.34,41.78-13.13,32.83-10.18,69.42,10.58,98.75,24.87,35.14,78.43,41.62,107.73,4.25Z"/>
+      <path class="st2-l" d="M3073.71,3202.6c-36.53,11.93-74.81,7.54-105.55,5.89l.11-188.82,80.33-.76c48.53-.46,85.37,35.19,91.52,79.02s-18.79,89.12-66.4,104.67ZM3078.83,3183.12c45.59-33.63,43.17-109.22-1.48-139.97-24.2-16.67-52.41-12.84-80.2-11.74l-.33,164.2c24.12,2.92,55.97,6.72,82.01-12.49Z"/>
+      <path class="st2-l" d="M3448.23,3137.15c-12.7,50.26-60.48,77.62-105.45,75.39-48.83-2.42-91.44-36.84-98.29-87.57-4.54-33.62,11.34-64.29,33.5-83.78,24.64-21.66,56.34-29.83,90.36-23.48,54.58,10.18,94.71,60.81,79.89,119.44ZM3409.89,3069.21c-11.03-25.32-33.55-39.95-56.89-41.31-24.31-1.42-48.24,7.58-62.7,29.4-25.36,38.26-20.25,91.79,12.67,123.77,16.59,16.12,37.86,20.4,60.72,16.58,46.89-7.83,70.7-72.17,46.2-128.43Z"/>
+      <path class="st2-l" d="M3713.42,3211.4l-130.36-156-1.11,143.68c3.32,6.61-.56,15.8-15.54,11.62l1.77-163.58c.12-11.18-5.77-20.02-11.11-26.62,11.52-3.91,27.86-4.58,34.6.13l107.18,129.58,1.08-133.01c15.33-2.78,17.64,4.58,17.06,11.63l-3.57,182.58Z"/>
+      <path class="st2-l" d="M2529.59,3209.91l-30.52,1.12,2.96-101.16-98.03-.44,2.27,97.33c-7.24,5.32-25.54,6.14-30.74-1.24l-.48-184.13c7.03-4.02,16.74-3.92,31.55-2.35-4.87,27.01-3.3,52.3-2.09,78.59l95.86-.17c3.77-28.27,2.04-54.59-1.09-80.44l30.91.46-.6,192.43Z"/>
+      <path class="st2-l" d="M2002.49,3188.61l-30.73-50.81c-7.73-12.79-30.59-24.78-38.9-15.19-5.13,29.68-2.83,57.71.95,87.82l-31.4.46.06-193.24c61.44-3.48,118.04,3.72,116.14,49.04-.85,20.39-14.73,37.51-38.81,46.01,31.65,22.67,40.75,69.52,75.22,94.05-17.74,10.65-40.34,2.01-52.53-18.13ZM1931.75,3107.7c25.34,5,43.03-5.04,50.5-16.94,11-17.53,7.88-39.18-3.18-50.46-12.18-12.42-31.68-12.08-48.26-8.81l.94,76.21Z"/>
+      <path class="st2-l" d="M4254.6,3113.96c1.08,40.55,22.52,71.92,53.5,81.59,36.51,11.4,72.37-.39,90.35-33.46,7.58,9.02,5.82,28.14-1.05,32.45-28.24,17.7-63.3,22.43-95.12,14.74-42.84-10.35-73.1-45.21-76.82-84.1-4.12-43.03,18.69-83.07,59.49-100.25,36.89-15.53,78.06-10.76,112.96,6.45,2.59,15.47,8.64,25.82,2.53,42.23-17.12-39.71-51.48-52.13-88.1-43.18-34.67,8.48-58.88,40.11-57.72,83.53Z"/>
+      <path class="st2-l" d="M4627.68,3151.76c2.73,24.98-23.76,49.55-41.06,56.08-25.67,9.69-58.84,5.44-75.98-14.67-2.97-8.45-3.93-22.39,2.79-31.92,8.22,28.2,35.68,47.6,65.01,34.98,14.31-6.16,20.18-22.45,19.73-35.39-1.34-38.7-60.3-37.33-81.95-72.05-10.77-17.27-7.59-41.04,5.94-54.83,26.45-26.97,76.23-19.26,83.97-8.36,5.85,8.25,5.87,23.37.1,29.73-13.33-24.26-36.99-34.61-58.78-23.65-12.22,6.15-16.09,22.67-12.58,34.24,8.85,29.13,86.89,31.61,92.83,85.84Z"/>
+      <path class="st2-l" d="M3912.57,3204.63c-4.86,8.99-21.06,6.02-31.24,5.65l1.53-178.58c-21.85-3.19-39.44-.1-62.64,8.19,1.91-6.36,2.91-11.62,2.45-21.64l146.81-.31c1.23,7.41,1.72,10.99.57,19.08-19.23-5.49-35.69-7.16-59.6-6.43l2.11,174.02Z"/>
+      <path class="st2-l" d="M2208.03,3203.82c.05,8.99-25.18,9.46-29.28,2.85l1.92-175.78c-50.03-3.85-68.2,19.7-59.39-12.12l146.34-.98,1.38,23.95c-18.98-10.5-37.96-12.88-61.97-10.57l1,172.66Z"/>
+      <path class="st2-l" d="M4109.16,3204.02c-.76,8.13-16.78,7.94-30.44,6.42l-.25-192.94,31.09.88-.4,185.65Z"/>
+      <path class="st2-l" d="M2063.81,2626.67l45.38-1.34c65.07-1.92,127.42.26,189.77,11.43l94.71,16.97c18.26,3.27,36.04,5.46,57.16,16.77-18.26,6.27-32.45,1.88-47.24.4-29.06-2.91-58.56-1.03-89.33-1.74-79.55-1.82-157.13.94-236.46,10.97l-46.79,5.91c-71.55,9.05-139.23,22.43-209.75,40.03l22.92,55.99-71.78,29.29-78-185.69,72.51-30.39,29.79,71.26c89.44-22.5,177.45-37.2,267.1-39.85Z"/>
+      <path class="st2-l" d="M1628.14,2788.37c-159.46,56.18-294.69,139.65-441.29,233.85,110.15-130.71,259.88-220.18,416.05-291.12l-24.47-62.36,71.97-29.69,78.17,184.4-72.29,31.74-28.13-66.81Z"/>
+    </symbol>
+  </defs>
+  <style>
+    .st0-l { fill: #fdfdfe; }
+    .st1-l { fill: #05377b; }
+    .st2-l { fill: #87898e; }
+    .logo-light .st1-l { fill: #ffffff; }
+    .logo-light .st2-l { fill: rgba(255,255,255,0.7); }
+  </style>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="Acorn Orthodontics">
+      <svg class="logo-mark" viewBox="372 1313 4256 2375" preserveAspectRatio="xMidYMid meet">
+        <use href="#acorn-logo" x="0" y="0" width="5000" height="5000"/>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#doctors">Our Doctors</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li><a href="#contact">New Patients</a></li>
+    </ul>
+    <a href="#contact" class="btn-primary">Request Appointment</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="section-eyebrow">Welcome to Acorn Orthodontics</p>
+      <h1>The leader in <span class="accent">modern</span> orthodontics.</h1>
+      <p class="hero-sub">Dr. Bebrin has been entrusted for over three decades by countless patients to create the smile they have always dreamed of. Top 1% Invisalign provider in the nation, and the #1 Invisalign practice in New England.</p>
+      <div class="hero-credentials">
+        <span class="credential-pill">Invisalign Blue Diamond+ 2025</span>
+        <span class="credential-pill">Top 1% Nationwide</span>
+        <span class="credential-pill">#1 in New England</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Request Appointment</a>
+        <a href="#services" class="btn-secondary">Our Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item"><span class="num">30+</span><span class="label">Years of expertise</span></div>
+      <div class="trust-item"><span class="num">6</span><span class="label">Locations across MA &amp; RI</span></div>
+      <div class="trust-item"><span class="num">Top 1%</span><span class="label">Invisalign provider in U.S.</span></div>
+      <div class="trust-item"><span class="num">#1</span><span class="label">Invisalign in New England</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="section-eyebrow">Our services</p>
+      <h2 class="section-title">Personalized care for every smile</h2>
+      <p class="section-intro">A family-friendly practice offering personalized orthodontic services including virtual consultations, 3D treatment simulation, digital imaging, and the cutting-edge Dental Monitoring app with Invisalign treatment.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c-3 0-5 1.5-5 4 0 1.5.5 3 1 5 .5 2 .5 5 2 7 .5.5 1.5.5 2-.5 1-2 1-4 2-4s1 2 2 4c.5 1 1.5 1 2 .5 1.5-2 1.5-5 2-7 .5-2 1-3.5 1-5 0-2.5-2-4-5-4-1 0-2 .5-2 .5s-1-.5-2-.5z"/>
+          </svg>
+        </div>
+        <h3>Orthodontic Services</h3>
+        <p>We specialize in orthodontics. Braces help align and straighten teeth to improve both appearance and your bite, supporting better overall dental health.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 4h12l-2 6 2 10H6l2-10z"/>
+            <line x1="6" y1="10" x2="18" y2="10"/>
+          </svg>
+        </div>
+        <h3>Invisalign</h3>
+        <p>Both Dr. Bebrin and Dr. Cugine are certified Invisalign Super Elite providers — placing them in the top 1% of orthodontists in the country.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 3v18"/>
+          </svg>
+        </div>
+        <h3>3D Digital Scanning</h3>
+        <p>Enjoy a high-tech chairside experience without the mess and gagging associated with traditional impressions. Fast, comfortable, and accurate.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2"/>
+            <line x1="12" y1="18" x2="12.01" y2="18"/>
+          </svg>
+        </div>
+        <h3>Dental Monitoring</h3>
+        <p>Track your Invisalign progress weekly from your mobile device. Our cutting-edge app lets us monitor progress without an in-office visit.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 6v7c0 5 4 9 9 10 5-1 9-5 9-10V6z"/>
+          </svg>
+        </div>
+        <h3>Braces Care</h3>
+        <p>From traditional metal braces to clear ceramic options — comfortable, reliable treatment paired with everything you need to keep them clean.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <h3>Orthodontic Emergencies</h3>
+        <p>Loose bracket? Broken wire? Our team offers rapid-response appointments across all six locations to get you back on track quickly.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI FEATURE -->
+<section style="padding: 40px 0 100px;">
+  <div class="container">
+    <div class="ai-feature">
+      <div>
+        <p class="section-eyebrow">New — Always-on support</p>
+        <h2>Meet Hazel, your 24/7 Acorn assistant.</h2>
+        <p>Hazel is our AI-powered concierge. She handles common requests instantly — across all six offices — so our front-desk team can focus on the patients in front of them, not the phone.</p>
+        <ul class="ai-features-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Book or reschedule across any of our 6 locations</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Instant answers about Invisalign, braces, and pricing</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Insurance, payment plans, and new patient paperwork</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Directions, hours, and office-specific contact info</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Hands off to a real team member when needed</span>
+          </li>
+        </ul>
+      </div>
+      <div class="chat-preview">
+        <div class="chat-msg user">Can I switch my appointment to the Peabody office?</div>
+        <div class="chat-msg bot">Of course. I see your appointment is Tuesday at the Middleton office at 2:00 PM. The Peabody office has openings Tuesday at 1:30 PM or 3:45 PM. Which works better?</div>
+        <div class="chat-msg user">3:45</div>
+        <div class="chat-msg bot">Done. You're confirmed for Peabody on Tuesday at 3:45 PM. Address: 6 Essex Center Drive Ste. 301. I'll text you the confirmation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="doctors" style="background: var(--cream);">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="section-eyebrow">Meet the team</p>
+      <h2 class="section-title">The doctors creating endless smiles</h2>
+      <p class="section-intro">Dr. Bebrin and his team have a reputation for treating the most complex orthodontic cases and achieving great results. He also teaches these techniques in the study group he chairs.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <h3>Dr. William Bebrin</h3>
+        <div class="team-role">Founder · DMD</div>
+        <p class="team-bio">Three decades of clinical leadership. Recognized as one of the top orthodontists in New England, with deep expertise in complex multi-disciplinary cases.</p>
+        <div class="team-creds">
+          <span class="team-cred">Invisalign Diamond+</span>
+          <span class="team-cred">Study Group Chair</span>
+          <span class="team-cred">Top 1% Nationwide</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <h3>Dr. Gwendolyn Cugine</h3>
+        <div class="team-role">Orthodontist · DMD</div>
+        <p class="team-bio">Certified Invisalign Super Elite provider, placing her in the top 1% of orthodontists nationwide. Passionate about personalized care for every age.</p>
+        <div class="team-creds">
+          <span class="team-cred">Invisalign Super Elite</span>
+          <span class="team-cred">Top 1% Nationwide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="section-eyebrow">Our promise</p>
+      <h2 class="section-title">Treating patients like family is our first priority</h2>
+      <p class="section-intro">Innovative, comfortable, and highly personalized care for every age. We blend three decades of expertise with the latest technology in orthodontics.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <h3>Virtual Consultations</h3>
+        <p>Get a treatment recommendation from the comfort of home. Send us photos, and our doctors will respond with a personalized plan.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <h3>3D Treatment Simulation</h3>
+        <p>See your future smile before treatment begins. Our 3D simulation tools show exactly what your results will look like.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3>Digital Imaging</h3>
+        <p>State-of-the-art digital imaging delivers faster, more accurate diagnostics with significantly less radiation than traditional x-rays.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews" class="testimonials">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="section-eyebrow">Our patients say it best</p>
+      <h2 class="section-title">Read our reviews</h2>
+      <p class="section-intro">Three decades of building trust, one smile at a time.</p>
+    </div>
+
+    <div class="review-summary">
+      <div class="review-summary-rating">
+        <div class="big-num">4.9</div>
+        <div class="stars">★★★★★</div>
+        <div class="count">Across Google, Facebook, and Yelp</div>
+      </div>
+      <div class="review-sources">
+        <div class="review-source">
+          <div class="source-name">Google</div>
+          <div class="source-stars">★★★★★</div>
+          <div class="source-count">Verified reviews</div>
+        </div>
+        <div class="review-source">
+          <div class="source-name">Facebook</div>
+          <div class="source-stars">★★★★★</div>
+          <div class="source-count">Patient recommended</div>
+        </div>
+        <div class="review-source">
+          <div class="source-name">Yelp</div>
+          <div class="source-stars">★★★★★</div>
+          <div class="source-count">Highly rated</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Great result, excellent staff, excellent front desk. Very professional office. Dr. Bebrin is a master at his profession."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AB</div>
+          <div class="author-name"><strong>Alexa B.</strong><span>Patient</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Staff was very friendly and Dr. Bebrin was thorough in my examination."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">TH</div>
+          <div class="author-name"><strong>Theresa H.</strong><span>Patient</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Office is beautiful. Doctor Bebrin is very knowledgeable. Staff is amazing! I would highly recommend him!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">BB</div>
+          <div class="author-name"><strong>Bill B.</strong><span>Patient</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-cta">
+      <a href="#" class="btn-secondary">Leave us a review</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="locations">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="section-eyebrow">Six locations to serve you</p>
+      <h2 class="section-title">Find an office near you</h2>
+      <p class="section-intro">From Middleton to Cranston, our doors are open across Massachusetts and Rhode Island.</p>
+    </div>
+    <div class="locations-grid">
+
+      <div class="location-card">
+        <h3>Middleton Office</h3>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div class="info">
+            <span class="label">Address</span>
+            119 S. Main Street<br>Middleton, MA 01949<br>
+            <a href="#">Get directions</a>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <div class="info">
+            <span class="label">Phone</span>
+            <a href="tel:9787771300">978-777-1300</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <h3>Gloucester Office</h3>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div class="info">
+            <span class="label">Address</span>
+            5 B Dr Osman Babson Rd.<br>Gloucester, MA 01930<br>
+            <a href="#">Get directions</a>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <div class="info">
+            <span class="label">Phone</span>
+            <a href="tel:9782837371">978-283-7371</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <h3>Peabody Office</h3>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div class="info">
+            <span class="label">Address</span>
+            6 Essex Center Drive Ste. 301<br>Peabody, MA 01960<br>
+            <a href="#">Get directions</a>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <div class="info">
+            <span class="label">Phone</span>
+            <a href="tel:9785318400">978-531-8400</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <h3>Tewksbury Office</h3>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div class="info">
+            <span class="label">Address</span>
+            1130 Main Street<br>Tewksbury, MA 01876<br>
+            <a href="#">Get directions</a>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <div class="info">
+            <span class="label">Phone</span>
+            <a href="tel:9788515020">978-851-5020</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <h3>Medford Office</h3>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div class="info">
+            <span class="label">Address</span>
+            47 Forest Street<br>Medford, MA 02155<br>
+            <a href="#">Get directions</a>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <div class="info">
+            <span class="label">Phone</span>
+            <a href="tel:7813912800">781-391-2800</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <h3>Cranston Office</h3>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div class="info">
+            <span class="label">Address</span>
+            1280 Park Ave.<br>Cranston, RI 02910<br>
+            <a href="#">Get directions</a>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <div class="info">
+            <span class="label">Phone</span>
+            <a href="tel:4019464046">401-946-4046</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta-section">
+  <div class="container">
+    <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">Want to smile with confidence?</p>
+    <h2>Take a deep breath and let us work the magic.</h2>
+    <p>Whether you choose Invisalign or braces, we offer the same expertise customized to your needs. Book a complimentary consultation — no obligation to pursue treatment.</p>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="#" class="btn-primary">Request Appointment</a>
+      <a href="#locations" class="btn-secondary">View All Locations</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg class="logo-mark-footer logo-light" viewBox="372 1313 4256 2375" preserveAspectRatio="xMidYMid meet">
+            <use href="#acorn-logo" x="0" y="0" width="5000" height="5000"/>
+          </svg>
+        </div>
+        <p style="font-size: 0.95rem; max-width: 320px; margin-top: 18px;">Family-friendly orthodontic care across 6 locations in Massachusetts and Rhode Island. The leader in modern orthodontics.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#contact">Request Appointment</a></li>
+          <li><a href="#contact">New Patients</a></li>
+          <li><a href="#">Policies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Orthodontic Services</a></li>
+          <li><a href="#services">Invisalign</a></li>
+          <li><a href="#services">3D Digital Scanning</a></li>
+          <li><a href="#services">Braces Care</a></li>
+          <li><a href="#services">Orthodontic Emergencies</a></li>
+          <li><a href="#services">Technology</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Doctors</h4>
+        <ul>
+          <li><a href="#doctors">William Bebrin, DMD</a></li>
+          <li><a href="#doctors">Gwendolyn Cugine, DMD</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#locations">All 6 Locations</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Acorn Orthodontics. All rights reserved. · This is a redesign proposal mockup.
+    </div>
+  </div>
+</footer>
+
+<!-- CHAT WIDGET -->
+<button class="chat-fab" id="chatFab" aria-label="Open chat">
+  <span class="pulse"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">H</div>
+    <div class="chat-header-info">
+      <strong>Hazel</strong>
+      <span><span class="online-dot"></span> Acorn AI Assistant · Online</span>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-bubble bot">Hi there! I'm Hazel, Acorn Orthodontics' virtual assistant. I can help with appointments, Invisalign questions, insurance, or finding an office near you. How can I help today?</div>
+    <div class="chat-quick-replies" id="quickReplies">
+      <button class="quick-reply" data-q="book">Book a consultation</button>
+      <button class="quick-reply" data-q="invisalign">Tell me about Invisalign</button>
+      <button class="quick-reply" data-q="cost">How much does treatment cost?</button>
+      <button class="quick-reply" data-q="locations">Find a location</button>
+      <button class="quick-reply" data-q="emergency">I have a loose bracket</button>
+    </div>
+  </div>
+  <div class="chat-footer">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Type your question…" />
+    <button class="chat-send" id="chatSend" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  const fab = document.getElementById('chatFab');
+  const win = document.getElementById('chatWindow');
+  const closeBtn = document.getElementById('chatClose');
+  const body = document.getElementById('chatBody');
+  const input = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('chatSend');
+  const quickReplies = document.getElementById('quickReplies');
+
+  fab.addEventListener('click', () => {
+    win.classList.toggle('open');
+    if (win.classList.contains('open')) input.focus();
+  });
+  closeBtn.addEventListener('click', () => win.classList.remove('open'));
+
+  const responses = {
+    book: "Of course. Which office is most convenient for you?\n\n• Middleton, MA\n• Gloucester, MA\n• Peabody, MA\n• Tewksbury, MA\n• Medford, MA\n• Cranston, RI\n\nOnce you pick, I'll show you available consultation times.",
+    invisalign: "Acorn is the #1 Invisalign provider in New England and a top 1% provider nationwide. Both Dr. Bebrin and Dr. Cugine are certified Invisalign Super Elite providers.\n\nTreatment typically runs 12-18 months, and we use the Dental Monitoring app so you don't even need to come in weekly. Want to book a free Invisalign scan?",
+    cost: "Great question. Pricing varies by treatment, but consultations are always complimentary — and we offer financing options for every budget.\n\nWe accept most insurance plans and offer 0% payment plans. Want me to start your insurance check?",
+    locations: "We have 6 offices to serve you:\n\n• Middleton, MA · 978-777-1300\n• Gloucester, MA · 978-283-7371\n• Peabody, MA · 978-531-8400\n• Tewksbury, MA · 978-851-5020\n• Medford, MA · 781-391-2800\n• Cranston, RI · 401-946-4046\n\nWhich is closest to you?",
+    emergency: "Don't worry — a loose bracket isn't dangerous, but we'll get you in quickly. We offer emergency slots at all 6 locations.\n\n1. Which office is closest to you?\n2. Are you in any pain?\n\nI can book you the next available emergency appointment today.",
+    default: "Great question. Let me connect you with someone from our front-desk team for a detailed answer. Meanwhile, would you like to book a complimentary consultation?"
+  };
+
+  function addBubble(text, who) {
+    const bubble = document.createElement('div');
+    bubble.className = `chat-bubble ${who}`;
+    bubble.textContent = text;
+    body.appendChild(bubble);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function showTyping() {
+    const t = document.createElement('div');
+    t.className = 'typing';
+    t.id = 'typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    body.appendChild(t);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function hideTyping() {
+    const t = document.getElementById('typing');
+    if (t) t.remove();
+  }
+
+  function handleQuery(key, userText) {
+    if (quickReplies) quickReplies.style.display = 'none';
+    addBubble(userText, 'user');
+    showTyping();
+    setTimeout(() => {
+      hideTyping();
+      addBubble(responses[key] || responses.default, 'bot');
+    }, 900 + Math.random() * 500);
+  }
+
+  quickReplies.querySelectorAll('.quick-reply').forEach(btn => {
+    btn.addEventListener('click', () => {
+      handleQuery(btn.dataset.q, btn.textContent.trim());
+    });
+  });
+
+  function sendMessage() {
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    let key = 'default';
+    const lower = text.toLowerCase();
+    if (/(book|appointment|schedule|consult)/.test(lower)) key = 'book';
+    else if (/invisalign|aligner|clear/.test(lower)) key = 'invisalign';
+    else if (/cost|price|how much|payment|insurance/.test(lower)) key = 'cost';
+    else if (/location|office|where|address|directions|hours/.test(lower)) key = 'locations';
+    else if (/emergency|broken|loose|pain|hurt/.test(lower)) key = 'emergency';
+    handleQuery(key, text);
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
+</script>
+
+</body>
+</html>
